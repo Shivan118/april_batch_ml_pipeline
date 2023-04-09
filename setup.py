@@ -17,7 +17,6 @@ def get_requirements_list()->List[str]:
         return requirement_list
 
 
-
 setup(
 name=PROJECT_NAME,
 version=VERSION,
