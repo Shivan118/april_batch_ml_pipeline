@@ -58,3 +58,16 @@ class Configuartion:
             return data_ingestion_config
         except Exception as e:
             raise CustomException(e,sys) from e
+    
+    def get_training_pipeline_config(self)->TrainingPipelineConfig:
+        try:
+            trainig_pipeline_config = self.config_info[TRAINING_PIPELINE_CONFIG_KEY]
+            artifact_dir = os.path.join(ROOT_DIR, 
+                                        trainig_pipeline_config[TRAINING_PIPELINE_NAME_KEY],
+                                        trainig_pipeline_config[TRAINING_PIPELINE_ARTIFACT_DIR_KEY])
+            
+            trainig_pipeline_config = TrainingPipelineConfig(artifact_dir=artifact_dir)
+            logging.info(F"Training pipeline completed: {trainig_pipeline_config}")
+            return trainig_pipeline_config
+        except Exception as e:
+            raise CustomException(e,sys) from e
