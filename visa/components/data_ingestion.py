@@ -11,7 +11,6 @@ from sklearn.model_selection import train_test_split
 from six.moves import urllib
 
 
-
 class DataIngestion:
 
     def __init__(self, data_ingestion_config: DataIngestionConfig):
